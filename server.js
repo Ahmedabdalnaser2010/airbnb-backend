@@ -1,11 +1,9 @@
 // server.js
-import { create, router as _router, defaults } from 'json-server';
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('db.json');
+const middlewares = jsonServer.defaults();
 
-const server = create();
-const router = _router('db.json');
-const middlewares = defaults();
-
-// Use port from environment or default to 5005
 const port = process.env.PORT || 5005;
 
 server.use(middlewares);
